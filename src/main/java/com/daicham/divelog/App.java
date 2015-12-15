@@ -14,7 +14,7 @@ public class App {
     public String home() {
         return "Hello World";
     }
-    
+
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
