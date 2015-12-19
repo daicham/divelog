@@ -35,7 +35,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.0.0')
     compile('org.mybatis:mybatis:3.3.0')
-    runtime('org.postgresql:postgresql:9.4-1206-jdbc42')
+    runtime('org.postgresql:postgresql')
+    runtime('org.flywaydb:flyway-core')
     providedRuntime('org.projectlombok:lombok:1.16.6')
     testCompile('org.springframework.boot:spring-boot-starter-test') 
 }
