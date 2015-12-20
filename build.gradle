@@ -30,6 +30,11 @@ configurations {
     providedRuntime
 }
 
+sourceSets {
+    main.compileClasspath += configurations.providedRuntime
+    test.compileClasspath += configurations.providedRuntime
+}
+
 dependencies {
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-web')
