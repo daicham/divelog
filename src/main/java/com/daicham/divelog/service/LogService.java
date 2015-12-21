@@ -18,7 +18,19 @@ public class LogService {
         return new Logs(repository.findAll());
     }
 
-    public void regsit(Log log) {
+    public Log findById(long id) {
+        return repository.findById(id);
+    }
+
+    public void register(Log log) {
         repository.insert(log);
+    }
+
+    public void update(Log log) {
+        repository.update(log);
+    }
+
+    public void deleteById(long id) {
+        repository.deleteById(id);
     }
 }

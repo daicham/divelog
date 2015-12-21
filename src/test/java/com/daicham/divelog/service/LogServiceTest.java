@@ -3,16 +3,13 @@ package com.daicham.divelog.service;
 import com.daicham.divelog.App;
 import com.daicham.divelog.domain.Log;
 import com.daicham.divelog.domain.Logs;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -29,7 +26,7 @@ public class LogServiceTest {
     public void testInsert() {
         Log log = new Log();
         log.setPlace("Izu");
-        service.regsit(log);
+        service.register(log);
 
         Logs logs = service.findAll();
         assertThat(logs, is(notNullValue()));
@@ -38,30 +35,30 @@ public class LogServiceTest {
     }
 
     @Test
-    @Ignore
     public void testUpdate() {
         Log log = new Log();
         log.setPlace("Izu");
-        service.regsit(log);
-
-        log = service.findById(1); //FIXME: Don't use magic number
+        service.register(log);
+        long id = log.getId();
+        assertThat(id, is(greaterThan(0L)));
+        log = service.findById(id);
         log.setPlace("chiba");
         service.update(log);
 
-        log = service.findById(1);
+        log = service.findById(id);
         assertThat(log, is(notNullValue()));
         assertThat(log.getPlace(), is("chiba"));
     }
 
     @Test
-    @Ignore
     public void testDelete() {
         Log log = new Log();
         log.setPlace("Izu");
-        service.regsit(log);
-
-        service.deleteById(1); //FIXME: Don't use magic number
-        log = service.findById(1);
+        service.register(log);
+        long id = log.getId();
+        assertThat(id, is(greaterThan(0L)));
+        service.deleteById(id);
+        log = service.findById(id);
         assertThat(log, is(nullValue()));
     }
 }
