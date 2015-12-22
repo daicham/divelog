@@ -1,4 +1,4 @@
-create table log (
+create table logs (
   id SERIAL,
   place varchar
 )

@@ -10,19 +10,19 @@ import java.util.List;
  */
 @Repository
 public interface LogRepository {
-    @Select("select * from log")
+    @Select("select * from logs")
     List<Log> findAll();
 
-    @Select("select * from log where id = #{id}")
+    @Select("select * from logs where id = #{id}")
     Log findById(long id);
 
-    @Insert("insert into log(place) values(#{place})")
+    @Insert("insert into logs(place) values(#{place})")
     @SelectKey(statement="call identity()", keyProperty="id", before=false, resultType=long.class)
     void insert(Log log);
 
-    @Update("update log set place = #{place} where id = #{id}")
+    @Update("update logs set place = #{place} where id = #{id}")
     void update(Log log);
 
-    @Delete("delete from log where id = #{id}")
+    @Delete("delete from logs where id = #{id}")
     void deleteById(long id);
 }
