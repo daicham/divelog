@@ -1,10 +1,14 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"/>
   <title>Logs</title>
 </head>
 <body>
-  <p th:text="${message}">Hello Logs!</p>
+  <button>New Log</button>
+  <div th:if="${logs.isEmpty()}">There are no logs.</div>
+  <li th:each="log : ${logs}">
+    <ul th:text="${log.place}">Izu</ul>
+  </li>
 </body>
 </html>

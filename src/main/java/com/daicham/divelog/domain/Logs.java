@@ -1,12 +1,14 @@
 package com.daicham.divelog.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import lombok.ToString;
+
+import java.util.*;
 
 /**
  * @author daicham
  */
-public class Logs {
+@ToString
+public class Logs implements Iterable<Log> {
     private List<Log> logs;
 
     public Logs(List<Log> logs) {
@@ -19,5 +21,14 @@ public class Logs {
 
     public Log get(int index) {
         return logs.get(index);
+    }
+
+    public boolean isEmpty() {
+        return logs.isEmpty();
+    }
+
+    @Override
+    public Iterator<Log> iterator() {
+        return logs.iterator();
     }
 }

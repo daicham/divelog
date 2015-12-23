@@ -36,6 +36,6 @@ public class LogControllerTest {
     public void testIndex() throws Exception {
         mock.perform(get("/logs"))
             .andExpect(status().isOk())
-            .andExpect(model().attributeExists("message"));
+            .andExpect(model().attributeExists("logs"));
     }
 }
