@@ -40,7 +40,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.0.0')
-    compile('org.mybatis:mybatis:3.3.0')
     compile('org.flywaydb:flyway-core')
     runtime('org.postgresql:postgresql')
     providedRuntime('org.projectlombok:lombok:1.16.6')
