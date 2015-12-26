@@ -1,10 +1,14 @@
 package com.daicham.divelog.web;
 
+import com.daicham.divelog.domain.Log;
 import com.daicham.divelog.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 /**
  * @author daicham
@@ -19,5 +23,16 @@ public class LogController {
     public String index(Model model) {
         model.addAttribute("logs", service.findAll());
         return "logs/index";
+    }
+
+    @RequestMapping(path = "new", method = RequestMethod.GET)
+    public String _new() {
+        return "logs/new";
+    }
+
+    @RequestMapping(path = "new", method = RequestMethod.POST)
+    public String register(@Valid Log log) {
+        service.register(log);
+        return "redirect:/logs";
     }
 }

@@ -5,10 +5,14 @@
   <title>Logs</title>
 </head>
 <body>
-  <button>New Log</button>
+  <a href="new.html" th:href="@{/logs/new}">New Log</a>
   <div th:if="${logs.isEmpty()}">There are no logs.</div>
   <li th:each="log : ${logs}">
-    <ul th:text="${log.location}">Izu</ul>
+    <ul>
+      <div th:text="${log.no}">1</div>
+      <div th:text="${log.date}">2015-12-26</div>
+      <div th:text="${log.location}">Izu</div>
+    </ul>
   </li>
 </body>
 </html>

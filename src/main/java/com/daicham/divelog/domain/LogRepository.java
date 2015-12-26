@@ -18,7 +18,7 @@ public interface LogRepository {
 
     @Insert("insert into logs(no, date, location, time_in, time_out, bar_in, bar_out, max_depth, avg_depth, weight, air_temp, surface_temp, bottom_temp, visibility, notes)" +
             " values(#{no}, #{date}, #{location}, #{timeIn}, #{timeOut}, #{barIn}, #{barOut}, #{maxDepth}, #{avgDepth}, #{weight}, #{airTemp}, #{surfaceTemp}, #{bottomTemp}, #{visibility}, #{notes})")
-    @SelectKey(statement="call identity()", keyProperty="id", before=false, resultType=long.class)
+    @Options(useGeneratedKeys = true)
     void insert(Log log);
 
     @Update("update logs set no = #{no}, date = #{date}, location = #{location}, time_in = #{timeIn}, time_out = #{timeOut}," +
