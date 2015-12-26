@@ -8,7 +8,7 @@
   <button>New Log</button>
   <div th:if="${logs.isEmpty()}">There are no logs.</div>
   <li th:each="log : ${logs}">
-    <ul th:text="${log.place}">Izu</ul>
+    <ul th:text="${log.location}">Izu</ul>
   </li>
 </body>
 </html>
