@@ -8,9 +8,7 @@
         <setting name="useColumnLabel" value="true"/>
     </settings>
     <!-- カラムタイプによりデフォルトとは異なる O/R 変換処理が必要になる場合に設定 -->
-    <!--
     <typeHandlers>
-        <typeHandler handler="package.name.LocalDateTypeHandler"/>
+        <package name="com.daicham.divelog.mybatis.handler"/>
     </typeHandlers>
-    -->
 </configuration>

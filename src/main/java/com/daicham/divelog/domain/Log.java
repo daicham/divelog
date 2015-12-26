@@ -2,8 +2,8 @@ package com.daicham.divelog.domain;
 
 import lombok.Data;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * @author daicham
@@ -12,10 +12,10 @@ import java.util.Date;
 public class Log {
     private long id;
     private int no;
-    private Date date;
+    private LocalDate date;
     private String location;
-    private Time timeIn;
-    private Time timeOut;
+    private LocalTime timeIn;
+    private LocalTime timeOut;
     private int barIn;
     private int barOut;
     private float maxDepth;

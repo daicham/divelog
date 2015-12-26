@@ -45,7 +45,6 @@ dependencies {
     runtime('org.postgresql:postgresql')
     providedRuntime('org.projectlombok:lombok:1.16.6')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('org.exparity:hamcrest-date:2.0.1')
     testRuntime('com.h2database:h2')
 }
 
