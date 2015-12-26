@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layouts/default">
 <head>
-  <meta charset="UTF-8"/>
   <title>Logs</title>
 </head>
 <body>
-  <a href="new.html" th:href="@{/logs/new}">New Log</a>
-  <div th:if="${logs.isEmpty()}">There are no logs.</div>
-  <li th:each="log : ${logs}">
-    <ul>
-      <div th:text="${log.no}">1</div>
-      <div th:text="${log.date}">2015-12-26</div>
-      <div th:text="${log.location}">Izu</div>
-    </ul>
-  </li>
+  <div layout:fragment="content">
+    <a href="new.html" th:href="@{/logs/new}" class="btn btn-primary">New Log</a>
+    <div th:if="${logs.isEmpty()}">There are no logs.</div>
+    <table class="table">
+      <thead>
+        <th>Dive No.</th>
+        <th>Date</th>
+        <th>Location</th>
+      </thead>
+      <tbody>
+      <tr th:each="log : ${logs}">
+        <td th:text="${log.no}">1</td>
+        <td th:text="${log.date}">2015-12-26</td>
+        <td th:text="${log.location}">Izu</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

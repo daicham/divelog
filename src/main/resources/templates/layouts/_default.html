@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen"
+        th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"/>
+  <style>
+    .footer {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div th:fragment="footer" class="footer">
+    &copy; 2015 divelog
+  </div>
+  <!--/* Deferred scripts */-->
+  <th:block th:fragment="deferred">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+  </th:block>
+</body>
+</html>

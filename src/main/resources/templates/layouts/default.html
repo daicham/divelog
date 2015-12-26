@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">DiveLog</title>
+  <th:block th:include="layouts/_default::head" />
+</head>
+<body>
+  <div class="container-fluid">
+    <div layout:fragment="content">
+      <!--/*
+        Page Content goes here
+      */-->
+    </div>
+  </div>
+  <div th:replace="layouts/_default::footer">footer</div>
+  <th:block th:replace="layouts/_default::deferred"/>
+</body>
+</html>
