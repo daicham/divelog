@@ -16,7 +16,7 @@
       </thead>
       <tbody>
       <tr th:each="log : ${logs}">
-        <td th:text="${log.no}">1</td>
+        <td><a href="show.html" th:href="@{/logs/{id}(id=${log.id})}" th:text="${log.no}">1</a></td>
         <td th:text="${log.date}">2015-12-26</td>
         <td th:text="${log.location}">Izu</td>
       </tr>
