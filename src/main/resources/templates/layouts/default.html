@@ -6,11 +6,11 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div layout:fragment="content">
+    <th:block layout:fragment="content">
       <!--/*
         Page Content goes here
       */-->
-    </div>
+    </th:block>
   </div>
   <div th:replace="layouts/_default::footer">footer</div>
   <th:block th:replace="layouts/_default::deferred"/>

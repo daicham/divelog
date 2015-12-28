@@ -27,7 +27,8 @@ public class LogController {
     }
 
     @RequestMapping(path = "new", method = RequestMethod.GET)
-    public String _new() {
+    public String _new(Model model) {
+        model.addAttribute("log", new Log());
         return "logs/new";
     }
 
@@ -38,8 +39,20 @@ public class LogController {
     }
 
     @RequestMapping(path = "{id}", method = RequestMethod.GET)
-    public String show(@PathVariable long id, Model model) {
+    public String show(@PathVariable Long id, Model model) {
         model.addAttribute("log", service.findById(id));
         return "logs/show";
+    }
+
+    @RequestMapping(path = "{id}/edit", method = RequestMethod.GET)
+    public String edit(@PathVariable Long id, Model model) {
+        show(id, model);
+        return "logs/edit";
+    }
+
+    @RequestMapping(path = "{id}", method = RequestMethod.POST)
+    public String update(@Valid Log log) {
+        service.update(log);
+        return "redirect:/logs";
     }
 }

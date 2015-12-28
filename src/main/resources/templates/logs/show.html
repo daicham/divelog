@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="layouts/default">
+      layout:decorator="layouts/default"
+      th:object="${log}">
 <head>
-  <title>Log</title>
+  <title th:text="'Show Log #'+*{no}">Show Log #1</title>
 </head>
 <body>
-<div layout:fragment="content" class="container-fluid">
+<div layout:fragment="content">
+  <th:block th:include="logs/_form::nav(backUrl=@{/logs}, isEdit=true)"/>
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">
         <label>Dive No.</label>
-        <p class="form-control-static" th:text="${log.no}">1</p>
+        <p class="form-control-static" th:text="*{no}">1</p>
       </div>
       <div class="form-group">
         <label>Date</label>
-        <p class="form-control-static" th:text="${log.date}">2015-12-27</p>
+        <p class="form-control-static" th:text="*{date}">2015-12-27</p>
       </div>
       <div class="form-group">
         <label>Location</label>
-        <p class="form-control-static" th:text="${log.location}">Izu</p>
+        <p class="form-control-static" th:text="*{location}">Izu</p>
       </div>
     </div>
   </div>

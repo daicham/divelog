@@ -1,0 +1,18 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default"
+      th:object="${log}">
+<head>
+  <title th:text="'Edit Log #'+${no}">Edit Log #1</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+  <th:block th:include="logs/_form::nav(backUrl=@{'/logs/'+*{id}},isEdit=false)"/>
+  <div class="row">
+    <div class="col-md-12">
+      <form th:action="@{/logs/{id}(id=*{id})}" method="post" th:include="logs/_form::form" />
+    </div>
+  </div>
+</th:block>
+</body>
+</html>

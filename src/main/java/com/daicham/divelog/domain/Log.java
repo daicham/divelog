@@ -10,20 +10,20 @@ import java.time.LocalTime;
  */
 @Data
 public class Log {
-    private long id;
-    private int no;
+    private Long id;
+    private Integer no;
     private LocalDate date;
     private String location;
     private LocalTime timeIn;
     private LocalTime timeOut;
-    private int barIn;
-    private int barOut;
-    private float maxDepth;
-    private float avgDepth;
-    private int weight;
-    private float airTemp;
-    private float surfaceTemp;
-    private float bottomTemp;
-    private int visibility;
+    private Integer barIn;
+    private Integer barOut;
+    private Float maxDepth;
+    private Float avgDepth;
+    private Integer weight;
+    private Float airTemp;
+    private Float surfaceTemp;
+    private Float bottomTemp;
+    private Integer visibility;
     private String notes;
 }
