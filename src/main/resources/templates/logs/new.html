@@ -7,7 +7,7 @@
 </head>
 <body>
   <th:block layout:fragment="content">
-    <th:block th:include="logs/_form::nav(backUrl=@{/logs}, isUrl=false)"/>
+    <th:block th:include="logs/_form::nav(backUrl=@{/logs}, isEdit=false)"/>
     <div class="row">
       <div class="col-md-12">
         <form th:action="@{/logs/new}" method="post" th:include="logs/_form::form"/>
