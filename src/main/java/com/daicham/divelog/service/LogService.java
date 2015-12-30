@@ -18,6 +18,10 @@ public class LogService {
         return new Logs(repository.findAll());
     }
 
+    public Logs findAllOrderByNoDesc() {
+        return new Logs(repository.findAllOrderByNoDesc());
+    }
+
     public Log findById(long id) {
         return repository.findById(id);
     }

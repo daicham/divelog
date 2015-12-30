@@ -10,8 +10,11 @@ import java.util.List;
  */
 @Repository
 public interface LogRepository {
-    @Select("select * from logs")
+    @Select("select * from logs order by no")
     List<Log> findAll();
+
+    @Select("select * from logs order by no desc")
+    List<Log> findAllOrderByNoDesc();
 
     @Select("select * from logs where id = #{id}")
     Log findById(long id);

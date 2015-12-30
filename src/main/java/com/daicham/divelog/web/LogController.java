@@ -21,8 +21,8 @@ public class LogController {
     private LogService service;
 
     @RequestMapping
-    public String index(Model model) {
-        model.addAttribute("logs", service.findAll());
+    public String list(Model model) {
+        model.addAttribute("logs", service.findAllOrderByNoDesc());
         return "logs/index";
     }
 
