@@ -5,6 +5,7 @@ import com.daicham.divelog.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +34,10 @@ public class LogController {
     }
 
     @RequestMapping(path = "new", method = RequestMethod.POST)
-    public String register(@Valid Log log) {
+    public String register(@Valid Log log, BindingResult result) {
+        if (result.hasErrors()) {
+            return "logs/new";
+        }
         service.register(log);
         return "redirect:/logs";
     }
@@ -51,7 +55,10 @@ public class LogController {
     }
 
     @RequestMapping(path = "{id}", method = RequestMethod.POST)
-    public String update(@Valid Log log) {
+    public String update(@Valid Log log, BindingResult result) {
+        if (result.hasErrors()) {
+            return "logs/edit";
+        }
         service.update(log);
         return "redirect:/logs";
     }

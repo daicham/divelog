@@ -8,15 +8,15 @@
   <th:block layout:fragment="content">
     <div class="row">
       <div class="col-md-12">
-        <a href="new.html" th:href="@{/logs/new}" class="btn btn-primary">New Log</a>
+        <a href="new.html" th:href="@{/logs/new}" class="btn btn-primary" th:text="#{logs.btn.new}">New Log</a>
       </div>
     </div>
     <div th:if="${logs.isEmpty()}">There are no logs.</div>
     <table class="table">
       <thead>
-        <th>Dive No.</th>
-        <th>Date</th>
-        <th>Location</th>
+        <th th:text="#{logs.list.no}">Dive No.</th>
+        <th th:text="#{logs.list.date}">Date</th>
+        <th th:text="#{logs.list.location}">Location</th>
       </thead>
       <tbody>
       <tr th:each="log : ${logs}">

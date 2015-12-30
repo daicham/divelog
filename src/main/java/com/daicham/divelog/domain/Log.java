@@ -2,6 +2,8 @@ package com.daicham.divelog.domain;
 
 import lombok.Data;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,7 +13,10 @@ import java.time.LocalTime;
 @Data
 public class Log {
     private Long id;
+    @NotNull
+    @Min(1)
     private Integer no;
+    @NotNull
     private LocalDate date;
     private String location;
     private LocalTime timeIn;

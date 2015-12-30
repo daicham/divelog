@@ -5,27 +5,32 @@
 <div th:fragment="nav(backUrl, isEdit)">
   <div class="row">
     <div class="col-md-12">
-      <a href="./edit.html" th:href="@{'/logs/'+*{id}+'/edit'}" class="btn btn-primary" th:if="${isEdit}">Edit</a>
-      <a href="./index.html" th:href="${backUrl}">Back</a>
+      <a href="./edit.html" th:href="@{'/logs/'+*{id}+'/edit'}" class="btn btn-primary" th:if="${isEdit}" th:text="#{logs.btn.edit}">Edit</a>
+      <a href="./index.html" th:href="${backUrl}" th:text="#{logs.btn.back}">Back</a>
     </div>
   </div>
 </div>
-<form th:fragment="form">
-  <div class="form-group">
-    <label th:for="no" class="control-label">Dive No.</label>
-    <input type="number" th:field="*{no}" class="form-control" placeholder="Dive No." value="1"/>
-    <span class="glyphicon glyphicon-remove form-control-feedback" th:if="${#fields.hasErrors('no')}"></span>
-    <div class="help-block" th:if="${#fields.hasErrors('no')}" th:errors="*{no}">Incorrect number</div>
+
+<form th:fragment="form(action)" th:action="${action}" method="post">
+  <div class="form-group" th:classappend="${#fields.hasErrors('no')}?'has-error has-feedback'">
+    <label th:for="no" class="control-label" th:text="#{logs.form.no}">Dive No.</label>
+    <input type="number" th:field="*{no}" class="form-control" th:placeholder="#{logs.form.no}" value="1"/>
+    <span class="glyphicon glyphicon-remove form-control-feedback" th:if="${#fields.hasErrors('no')}"/>
+    <div class="help-block" th:if="${#fields.hasErrors('no')}" th:errors="*{no}"/>
+  </div>
+  <div class="form-group" th:classappend="${#fields.hasErrors('date')}?'has-error has-feedback'">
+    <label th:for="date" class="control-label" th:text="#{logs.form.date}">Date</label>
+    <input type="date" th:field="*{date}" class="form-control" th:placeholder="#{logs.form.date}" value="2015-12-28"/>
+    <span class="glyphicon glyphicon-remove form-control-feedback" th:if="${#fields.hasErrors('date')}"/>
+    <div class="help-block" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"/>
   </div>
   <div class="form-group">
-    <label th:for="date">Date</label>
-    <input type="date" th:field="*{date}" class="form-control" placeholder="Date" value="2015-12-28"/>
+    <label th:for="location" th:text="#{logs.form.location}">Location</label>
+    <input type="text" th:field="*{location}" class="form-control" th:placeholder="#{logs.form.location}" value="Izu"/>
+    <span class="glyphicon glyphicon-remove form-control-feedback" th:if="${#fields.hasErrors('location')}"/>
+    <div class="help-block" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"/>
   </div>
-  <div class="form-group">
-    <label th:for="location">Location</label>
-    <input type="text" th:field="*{location}" class="form-control" placeholder="Location" value="Izu"/>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" th:text="#{logs.btn.submit}">Submit</button>
 </form>
 </body>
 </html>

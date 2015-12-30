@@ -10,7 +10,7 @@
     <th:block th:include="logs/_form::nav(backUrl=@{/logs}, isEdit=false)"/>
     <div class="row">
       <div class="col-md-12">
-        <form th:action="@{/logs/new}" method="post" th:include="logs/_form::form"/>
+        <form th:replace="logs/_form::form(@{/logs/new})"/>
       </div>
     </div>
   </th:block>
