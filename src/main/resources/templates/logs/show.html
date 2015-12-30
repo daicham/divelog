@@ -7,7 +7,14 @@
 </head>
 <body>
 <div layout:fragment="content">
-  <th:block th:include="logs/_form::nav(backUrl=@{/logs}, isEdit=true)"/>
+  <div class="row">
+    <div class="col-md-12">
+      <th:block th:include="logs/_form::nav(backUrl=@{/logs}, canEdit=true)"/>
+      <form th:action="@{/logs/{id}/delete(id=*{id})}" style="display: inline;" method="post">
+        <button type="submit" class="btn btn-danger" th:text="#{logs.btn.delete}">Delete</button>
+      </form>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <div class="form-group">

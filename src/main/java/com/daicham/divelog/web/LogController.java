@@ -62,4 +62,10 @@ public class LogController {
         service.update(log);
         return "redirect:/logs";
     }
+
+    @RequestMapping(path = "{id}/delete", method = RequestMethod.POST)
+    public String delete(@PathVariable Long id) {
+        service.deleteById(id);
+        return "redirect:/logs";
+    }
 }

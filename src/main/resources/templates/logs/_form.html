@@ -2,13 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layouts/default">
 <body>
-<div th:fragment="nav(backUrl, isEdit)">
-  <div class="row">
-    <div class="col-md-12">
-      <a href="./edit.html" th:href="@{'/logs/'+*{id}+'/edit'}" class="btn btn-primary" th:if="${isEdit}" th:text="#{logs.btn.edit}">Edit</a>
-      <a href="./index.html" th:href="${backUrl}" th:text="#{logs.btn.back}">Back</a>
-    </div>
-  </div>
+<div th:fragment="nav(backUrl, canEdit)">
+  <a href="./index.html" th:href="${backUrl}" th:text="#{logs.btn.back}">Back</a>
+  <a href="./edit.html" th:href="@{/logs/{id}/edit(id=*{id})}" class="btn btn-primary" th:if="${canEdit}" th:text="#{logs.btn.edit}">Edit</a>
 </div>
 
 <form th:fragment="form(action)" th:action="${action}" method="post">
