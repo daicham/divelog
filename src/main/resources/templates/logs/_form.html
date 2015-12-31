@@ -3,8 +3,14 @@
       layout:decorator="layouts/default">
 <body>
 <div th:fragment="nav(backUrl, canEdit)">
-  <a href="./index.html" th:href="${backUrl}" th:text="#{logs.btn.back}">Back</a>
-  <a href="./edit.html" th:href="@{/logs/{id}/edit(id=*{id})}" class="btn btn-primary" th:if="${canEdit}" th:text="#{logs.btn.edit}">Edit</a>
+  <a href="./index.html" th:href="${backUrl}">
+    <span class="glyphicon glyphicon-menu-left"/>
+    <span th:text="#{logs.btn.back}">Back</span>
+  </a>
+  <a href="./edit.html" th:href="@{/logs/{id}/edit(id=*{id})}" class="btn btn-primary" th:if="${canEdit}">
+    <span class="glyphicon glyphicon-pencil"/>
+    <span th:text="#{logs.btn.edit}">Edit</span>
+  </a>
 </div>
 
 <form th:fragment="form(action)" th:action="${action}" method="post">
@@ -26,7 +32,10 @@
     <span class="glyphicon glyphicon-remove form-control-feedback" th:if="${#fields.hasErrors('location')}"/>
     <div class="help-block" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"/>
   </div>
-  <button type="submit" class="btn btn-primary" th:text="#{logs.btn.submit}">Submit</button>
+  <button type="submit" class="btn btn-primary">
+    <span class="glyphicon glyphicon-ok"/>
+    <span th:text="#{logs.btn.submit}">Submit</span>
+  </button>
 </form>
 </body>
 </html>
