@@ -3,4 +3,8 @@ machine:
     Asia/Tokyo
   java:
     version: oraclejdk8
-
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: shrouded-chamber-4741
