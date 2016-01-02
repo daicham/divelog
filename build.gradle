@@ -63,7 +63,7 @@ task genNewMigrate << {
         message = project.args.split('\\s+')[0]
     }
     def now = new Date().format("yyyyMMddHHmmss")
-    def newFile = "src/main/resources/db/migration/V${now}_${message}.sql"
+    def newFile = "src/main/resources/db/migration/V${now}__${message}.sql"
     new File(newFile) << ''
     println("New migration file '${newFile}' was generated.")
 }
